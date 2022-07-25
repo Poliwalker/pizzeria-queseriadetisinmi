@@ -1,0 +1,25 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.background-pizzeria {
+	height: 100vh;
+	background-image: url(/Assets/Pizza.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.background-pizzeria h1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	color: white;
+	font-size: 100px;
+	text-align: center;
+	margin: 0 auto;
+	max-width: 1000px;
+}
