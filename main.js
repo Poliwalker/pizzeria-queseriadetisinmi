@@ -86,7 +86,7 @@ console.log(precioPizzas);
 
 const nombreYPrecioPizzas = () => {
 	pizzas.forEach((pizza) =>
-		console.log(`la pizza de ${pizza.nombre} sale $${pizza.precio}`)
+		console.log(`la pizza ${pizza.nombre} sale $${pizza.precio}`)
 	);
 };
 
