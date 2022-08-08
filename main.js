@@ -74,13 +74,15 @@ console.log(pizzasMenorA());
 
 // Ejercicio C
 
-const nombrePizzas = pizzas.map((pizza) => pizza.nombre);
-console.log(nombrePizzas);
+pizzas.forEach((pizza) =>
+	console.log(`las pizzas disponibles son ${pizza.nombre}`)
+);
 
 // Ejercicio D
 
-const precioPizzas = pizzas.map((pizza) => pizza.precio);
-console.log(precioPizzas);
+pizzas.forEach((pizza) =>
+	console.log(`los precios que tenemos son ${pizza.precio}`)
+);
 
 // ejercicio E
 
