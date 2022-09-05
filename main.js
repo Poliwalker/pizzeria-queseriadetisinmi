@@ -117,7 +117,7 @@ const renderPizzas = (e) => {
 	e.preventDefault();
 	const numberValue = numberId.value;
 	if (!isEmpty(numberValue)) {
-		alert('el campo está vacio');
+		alert('No ha ingresado ningun valor');
 		return;
 	} else if (pizzaSearch(pizzas) !== undefined) {
 		titlePizza.textContent = `La pizza de ${pizzaSearch(pizzas).nombre} `;
