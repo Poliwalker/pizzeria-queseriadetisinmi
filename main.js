@@ -15,16 +15,67 @@
 
 // Por ejemplo: "La pizza X, tiene un valor de $XXXX”. 💸
 
+// <-------------------------------------------------------------------->
+
+// Vamos a utilizar el mismo array de objetos "Pizzas🍕" del desafío general anterior.
+
+// 👉 Crear un archivo HTML que contenga un h2, un h4, un input number y un botón.
+
+// 👉 El desafío será, al tocar el botón, capturar el valor ingresado en el input.
+// 👉 Renderizar en el h2 el nombre y en el h4 el precio de la pizza cuyo id coincida con el numero ingresado en el input.
+
+// 🚨 Si no coincide con ningún id, renderizar un mensaje de error.
+
+// Ejercicio A
+
+// pizzas.forEach((numero) => {
+// 	if (numero.id % 2 !== 0) console.log(`Las pizza impar es: ${numero.nombre}`);
+// });
+
+// // Ejercicio B
+
+// const pizzasMenorA = () => {
+// 	if (pizzas.some((pizza) => pizza.precio < 600)) {
+// 		return 'hay pizzas menor a 600$';
+// 	} else {
+// 		return 'no hay pizzas menores a 600$';
+// 	}
+// };
+
+// console.log(pizzasMenorA());
+
+// // Ejercicio C
+
+// pizzas.forEach((pizza) =>
+// 	console.log(`las pizzas disponibles son ${pizza.nombre}`)
+// );
+
+// // Ejercicio D
+
+// pizzas.forEach((pizza) =>
+// 	console.log(`los precios que tenemos son ${pizza.precio}`)
+// );
+
+// // ejercicio E
+
+// const nombreYPrecioPizzas = () => {
+// 	pizzas.forEach((pizza) =>
+// 		console.log(`la pizza ${pizza.nombre} sale $${pizza.precio}`)
+// 	);
+// };
+
+// nombreYPrecioPizzas();
+
 const pizzas = [
 	{
 		id: 1,
-		nombre: 'muzzarela',
+		nombre: 'Muzzarela',
 		precio: 1000,
 		ingredientes: ['muzzarela'],
 	},
 	{
 		id: 2,
-		nombre: 'fugazzeta',
+		nombre: 'Fugazzeta',
 		precio: 1200,
 		ingredientes: ['cebolla', 'muzzarela'],
 	},
@@ -36,60 +87,62 @@ const pizzas = [
 	},
 	{
 		id: 4,
-		nombre: 'jamon y morron',
+		nombre: 'Jamon y Morron',
 		precio: 1600,
 		ingredientes: ['jamon', 'morron', 'muzzarela'],
 	},
 	{
 		id: 5,
-		nombre: 'capresse',
+		nombre: 'Capresse',
 		precio: 2100,
 		ingredientes: ['albahaca', 'tomate', 'aceituna negra'],
 	},
 	{
 		id: 6,
-		nombre: 'especial',
+		nombre: 'Especial',
 		precio: 3000,
 		ingredientes: ['muzzarela', 'morron', 'choclo', 'huevo', 'parmesano'],
 	},
 ];
 
-// Ejercicio A
+const form = document.getElementById('form');
+const numberId = document.getElementById('number');
+const container = document.getElementById('container');
+const titlePizza = document.getElementById('title-pizza');
+const pricePizza = document.getElementById('price-pizza');
 
-pizzas.forEach((numero) => {
-	if (numero.id % 2 !== 0) console.log(`Las pizza impar es: ${numero.nombre}`);
-});
+// ----con esta funcion renderizamos y pintamos los titulos-----
 
-// Ejercicio B
-
-const pizzasMenorA = () => {
-	if (pizzas.some((pizza) => pizza.precio < 600)) {
-		return 'hay pizzas menor a 600$';
-	} else {
-		return 'no hay pizzas menores a 600$';
+const renderPizzas = (e) => {
+	e.preventDefault();
+	const numberValue = numberId.value;
+	if (!isEmpty(numberValue)) {
+		alert('el campo está vacio');
+		return;
+	} else if (pizzaSearch(pizzas) !== undefined) {
+		titlePizza.textContent = `La pizza de ${pizzaSearch(pizzas).nombre} `;
+		pricePizza.textContent = `Tiene un precio de: $ ${
+			pizzaSearch(pizzas).precio
+		}`;
+	} else if (pizzaSearch(pizzas) == undefined) {
+		titlePizza.textContent = `No hay pizzas con ese numero`;
+		pricePizza.textContent = ``;
+		return;
 	}
 };
 
-console.log(pizzasMenorA());
+const isEmpty = (value) => (value === '' ? false : true);
 
-// Ejercicio C
-
-pizzas.forEach((pizza) =>
-	console.log(`las pizzas disponibles son ${pizza.nombre}`)
-);
-
-// Ejercicio D
-
-pizzas.forEach((pizza) =>
-	console.log(`los precios que tenemos son ${pizza.precio}`)
-);
-
-// ejercicio E
-
-const nombreYPrecioPizzas = () => {
-	pizzas.forEach((pizza) =>
-		console.log(`la pizza ${pizza.nombre} sale $${pizza.precio}`)
-	);
+// ----- con esta funcion capturamos el id y lo buscamos en nuestro array -----
+const pizzaSearch = (p) => {
+	const valor = numberId.value;
+	const search = p.find((pizza) => pizza.id == valor);
+	return search;
 };
 
-nombreYPrecioPizzas();
+const init = () => {
+	form.addEventListener('submit', renderPizzas);
+	form.reset();
+};
+
+init();

@@ -6,13 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizzeria con JavaScript</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-    <div class="background-pizzeria">
-        <h1>Pizzeria "Queseria de ti sin mi"</h1>
-    </div>
+
+    <main>
+        <div class="container" id="container">
+            <h2 id="title-pizza" class="title-pizza"></h2>
+            <h4 id="price-pizza" class="price-pizza"></h4>
+        </div>
+
+        <form id="form" class="form">
+            <div class="number">
+                <label for="number">Ingrese un número</label>
+                <input type="number" name="number" id="number">
+                <small class="error"></small>
+            </div>
+
+            <input type="submit" value="Consultar" id="button">
+        </form>
+    </main>
+
+
 
     <script src="/main.js"></script>
 </body>

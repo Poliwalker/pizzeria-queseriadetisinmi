@@ -1,25 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Dancing+Script&family=DynaPuff&family=Gloria+Hallelujah&family=Josefin+Sans:wght@500&family=Lobster+Two:ital,wght@1,700&family=Playfair+Display:ital,wght@1,500&family=Poppins:ital,wght@1,200&family=Raleway:wght@700&display=swap');
+
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 }
 
-.background-pizzeria {
+body {
 	height: 100vh;
-	background-image: url(/Assets/Pizza.jpg);
+	background-image: url(/Assets/pizza-dibujito.jpg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	width: 100%;
+	background-color: black;
 }
 
-.background-pizzeria h1 {
+main {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 100%;
-	color: white;
-	font-size: 100px;
+	gap: 60px;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	max-width: 600px;
+}
+
+.title-pizza {
+	font-size: 80px;
+	color: red;
+	font-family: 'Raleway';
 	text-align: center;
-	margin: 0 auto;
-	max-width: 1000px;
+}
+
+.price-pizza {
+	font-size: 30px;
+	color: red;
+	font-family: 'poppins';
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+.number {
+	display: flex;
+	flex-direction: column;
+}
+
+.number label {
+	color: rgb(0, 0, 0);
+	font-size: 22px;
+	margin-bottom: 5px;
+	font-family: 'Poppins';
+}
+
+.number input {
+	width: 300px;
+	height: 30px;
+	border-radius: 8px;
+	border: none;
+	text-align: center;
+	color: rgb(54, 193, 54);
+}
+
+input[type='submit'] {
+	background-color: red;
+	padding: 10px;
+	border-radius: 10px;
+	cursor: pointer;
+	font-family: 'Poppins';
+	font-weight: 800;
+	font-size: 18px;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+}
+
+input[type='number'] {
+	outline: none;
 }
