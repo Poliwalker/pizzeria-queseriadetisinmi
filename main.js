@@ -118,17 +118,16 @@ const renderPizzas = (e) => {
 	const numberValue = numberId.value;
 	if (!isEmpty(numberValue)) {
 		alert('No ha ingresado ningun valor');
-		return;
 	} else if (pizzaSearch(pizzas) !== undefined) {
 		titlePizza.textContent = `La pizza de ${pizzaSearch(pizzas).nombre} `;
 		pricePizza.textContent = `Tiene un precio de: $ ${
 			pizzaSearch(pizzas).precio
 		}`;
-	} else if (pizzaSearch(pizzas) == undefined) {
-		titlePizza.textContent = `No hay pizzas con ese numero`;
+	} else {
+		titlePizza.textContent = `No hay pizzas con ese número`;
 		pricePizza.textContent = ``;
-		return;
 	}
+	return (numberId.value = '');
 };
 
 const isEmpty = (value) => (value === '' ? false : true);
@@ -142,7 +141,6 @@ const pizzaSearch = (p) => {
 
 const init = () => {
 	form.addEventListener('submit', renderPizzas);
-	form.reset();
 };
 
 init();
