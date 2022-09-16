@@ -72,36 +72,48 @@ const pizzas = [
 		nombre: 'Muzzarela',
 		precio: 1000,
 		ingredientes: ['muzzarela'],
+		imagen:
+			'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/133/466/products/copia-de-pizza-mozarella1-f27baa3e01887f9e6416299067526593-640-0.jpg',
 	},
 	{
 		id: 2,
 		nombre: 'Fugazzeta',
 		precio: 1200,
 		ingredientes: ['cebolla', 'muzzarela'],
+		imagen:
+			'https://www.barilocheya.com.ar/pizzeriabase/wp-content/uploads/sites/6/2020/03/fugazeta.jpg',
 	},
 	{
 		id: 3,
 		nombre: 'Napolitana',
 		precio: 1500,
 		ingredientes: ['tomate', 'muzzarela'],
+		imagen:
+			'https://www.tupperware.com.ar/service/appng/tupperware-products/webservice/recipeImages/058955_666x468.jpg',
 	},
 	{
 		id: 4,
 		nombre: 'Jamon y Morron',
 		precio: 1600,
 		ingredientes: ['jamon', 'morron', 'muzzarela'],
+		imagen:
+			'https://1.bp.blogspot.com/-vtUtFMOP9JE/Tt2IoMSZ86I/AAAAAAAABTQ/Cg_t3QbpBY4/s1600/galupizza.jpg',
 	},
 	{
 		id: 5,
 		nombre: 'Capresse',
 		precio: 2100,
 		ingredientes: ['albahaca', 'tomate', 'aceituna negra'],
+		imagen:
+			'https://www.cardamomo.news/__export/1607791207739/sites/debate/img/2020/12/12/pizza_capresex_la_receta_italiana_fxcil_de_hacer_crop1607791119597.jpeg_1187729725.jpeg',
 	},
 	{
 		id: 6,
 		nombre: 'Especial',
 		precio: 3000,
 		ingredientes: ['muzzarela', 'morron', 'choclo', 'huevo', 'parmesano'],
+		imagen:
+			'https://www.garciadepou.com/blog/wp-content/uploads/2016/08/pizza.jpg',
 	},
 ];
 
@@ -110,6 +122,11 @@ const numberId = document.getElementById('number');
 const container = document.getElementById('container');
 const titlePizza = document.getElementById('title-pizza');
 const pricePizza = document.getElementById('price-pizza');
+// const imagen = document.getElementById('img');
+
+const saveLocalStorage = () => {
+	localStorage.setItem('pizzas', JSON.stringify(pizzas));
+};
 
 // ----con esta funcion renderizamos y pintamos los titulos-----
 
@@ -119,15 +136,23 @@ const renderPizzas = (e) => {
 	if (!isEmpty(numberValue)) {
 		alert('No ha ingresado ningun valor');
 	} else if (pizzaSearch(pizzas) !== undefined) {
-		titlePizza.textContent = `La pizza de ${pizzaSearch(pizzas).nombre} `;
-		pricePizza.textContent = `Tiene un precio de: $ ${
-			pizzaSearch(pizzas).precio
-		}`;
+		container.innerHTML = cardPizza;
 	} else {
 		titlePizza.textContent = `No hay pizzas con ese número`;
 		pricePizza.textContent = ``;
 	}
 	return (numberId.value = '');
+};
+
+const cardPizza = (pizzas) => {
+	const { nombre, precio, ingredientes, imagen } = pizzas;
+	return `<div>
+	<div id="img">${imagen}</div>
+	<h2 class="title-pizza">${nombre}</h2>
+	<h4 id="price-pizza" class="price-pizza">${precio}</h4>
+	<h4>${ingredientes}</h4>
+	</div>
+	`;
 };
 
 const isEmpty = (value) => (value === '' ? false : true);
@@ -141,6 +166,7 @@ const pizzaSearch = (p) => {
 
 const init = () => {
 	form.addEventListener('submit', renderPizzas);
+	saveLocalStorage(pizzas);
 };
 
 init();
