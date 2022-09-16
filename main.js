@@ -144,8 +144,8 @@ const renderPizzas = (e) => {
 	return (numberId.value = '');
 };
 
-const cardPizza = (pizzas) => {
-	const { nombre, precio, ingredientes, imagen } = pizzas;
+const cardPizza = (pizza) => {
+	const { nombre, precio, ingredientes, imagen } = pizza;
 	return `<div>
 	<div id="img">${imagen}</div>
 	<h2 class="title-pizza">${nombre}</h2>
