@@ -29,8 +29,20 @@ main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 20px;
+	gap: 10px;
 	max-width: 600px;
+}
+
+.container-pizza {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem 2rem;
+	gap: 30px;
+	background-color: aliceblue;
+	border: 2px solid green;
+	border-radius: 20px;
 }
 
 .title-pizza {
@@ -40,10 +52,20 @@ main {
 	text-align: center;
 }
 
+#img {
+	width: 300px;
+	border-radius: 8px;
+}
+
 .price-pizza {
 	font-size: 30px;
 	color: red;
 	font-family: 'poppins';
+}
+
+.ing-pizza {
+	color: red;
+	max-width: 400px;
 }
 
 form {
@@ -63,6 +85,7 @@ form {
 	font-size: 22px;
 	margin-bottom: 5px;
 	font-family: 'Poppins';
+	text-align: center;
 }
 
 .number input {

@@ -71,7 +71,7 @@ const pizzas = [
 		id: 1,
 		nombre: 'Muzzarela',
 		precio: 1000,
-		ingredientes: ['muzzarela'],
+		ingredientes: ['muzzarela, oregano'],
 		imagen:
 			'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/133/466/products/copia-de-pizza-mozarella1-f27baa3e01887f9e6416299067526593-640-0.jpg',
 	},
@@ -120,8 +120,7 @@ const pizzas = [
 const form = document.getElementById('form');
 const numberId = document.getElementById('number');
 const container = document.getElementById('container');
-const titlePizza = document.getElementById('title-pizza');
-const pricePizza = document.getElementById('price-pizza');
+const titlePizzaEmpty = document.getElementById('title-error');
 // const imagen = document.getElementById('img');
 
 const saveLocalStorage = () => {
@@ -135,24 +134,29 @@ const renderPizzas = (e) => {
 	const numberValue = numberId.value;
 	if (!isEmpty(numberValue)) {
 		alert('No ha ingresado ningun valor');
-	} else if (pizzaSearch(pizzas) !== undefined) {
-		container.innerHTML = cardPizza;
+	} else if (pizzaSearch(pizzas)) {
+		container.innerHTML = cardPizza(pizzaSearch(pizzas));
 	} else {
-		titlePizza.textContent = `No hay pizzas con ese número`;
-		pricePizza.textContent = ``;
+		titlePizzaEmpty.innerHTML = `no hay pizza`;
 	}
 	return (numberId.value = '');
 };
 
 const cardPizza = (pizza) => {
 	const { nombre, precio, ingredientes, imagen } = pizza;
-	return `<div>
-	<div id="img">${imagen}</div>
-	<h2 class="title-pizza">${nombre}</h2>
-	<h4 id="price-pizza" class="price-pizza">${precio}</h4>
-	<h4>${ingredientes}</h4>
+	return `<div class="container-pizza">
+	<img id="img" src= "${imagen}">
+	<h2 class="title-pizza"> ${nombre}</h2>
+	<h4 id="price-pizza" class="price-pizza">Precio :${precio}$</h4>
+	<h4 class="ing-pizza"> Ingredientes: ${ingredientes}</h4>
 	</div>
 	`;
+};
+
+const pizzaEmpty = () => {
+	const h2 = document.createElement('h2');
+	h2.textContent = 'No hay pizzas con ese numero';
+	titlePizzaEmpty.appendChild(h2);
 };
 
 const isEmpty = (value) => (value === '' ? false : true);
