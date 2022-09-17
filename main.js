@@ -120,8 +120,9 @@ const pizzas = [
 const form = document.getElementById('form');
 const numberId = document.getElementById('number');
 const container = document.getElementById('container');
-const titlePizzaEmpty = document.getElementById('title-error');
-// const imagen = document.getElementById('img');
+const pizzaError = document.getElementById('pizza-error');
+
+console.log(pizzaError);
 
 const saveLocalStorage = () => {
 	localStorage.setItem('pizzas', JSON.stringify(pizzas));
@@ -137,7 +138,7 @@ const renderPizzas = (e) => {
 	} else if (pizzaSearch(pizzas)) {
 		container.innerHTML = cardPizza(pizzaSearch(pizzas));
 	} else {
-		titlePizzaEmpty.innerHTML = `no hay pizza`;
+		pizzaError.innerHTML = 'No hay pizzas con ese número';
 	}
 	return (numberId.value = '');
 };
@@ -151,12 +152,6 @@ const cardPizza = (pizza) => {
 	<h4 class="ing-pizza"> Ingredientes: ${ingredientes}</h4>
 	</div>
 	`;
-};
-
-const pizzaEmpty = () => {
-	const h2 = document.createElement('h2');
-	h2.textContent = 'No hay pizzas con ese numero';
-	titlePizzaEmpty.appendChild(h2);
 };
 
 const isEmpty = (value) => (value === '' ? false : true);
