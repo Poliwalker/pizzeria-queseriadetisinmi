@@ -93,9 +93,9 @@ const pizzas = [
 	},
 	{
 		id: 4,
-		nombre: 'Jamon y Morron',
+		nombre: 'Jamón y Morrón',
 		precio: 1600,
-		ingredientes: ['jamon', 'morron', 'muzzarela'],
+		ingredientes: ['jamón', 'morrón', 'muzzarela'],
 		imagen:
 			'https://1.bp.blogspot.com/-vtUtFMOP9JE/Tt2IoMSZ86I/AAAAAAAABTQ/Cg_t3QbpBY4/s1600/galupizza.jpg',
 	},
@@ -111,7 +111,14 @@ const pizzas = [
 		id: 6,
 		nombre: 'Especial',
 		precio: 3000,
-		ingredientes: ['muzzarela', 'morron', 'choclo', 'huevo', 'parmesano'],
+		ingredientes: [
+			'muzzarela',
+			'morrón',
+			'choclo',
+			'huevo',
+			'parmesano',
+			'radicheta',
+		],
 		imagen:
 			'https://www.garciadepou.com/blog/wp-content/uploads/2016/08/pizza.jpg',
 	},
@@ -138,10 +145,15 @@ const renderPizzas = (e) => {
 	} else if (pizzaSearch(pizzas)) {
 		container.innerHTML = cardPizza(pizzaSearch(pizzas));
 	} else {
-		pizzaError.innerHTML = 'No hay pizzas con ese número';
+		container.innerHTML = `<div class="pizza-error">
+		<i class="fa-solid fa-xmark"></i>
+	<h2 class="title-error">No existe una pizza con el número ingresado</h2>
+	</div>`;
 	}
 	return (numberId.value = '');
 };
+
+//card para renderizar las pizzas
 
 const cardPizza = (pizza) => {
 	const { nombre, precio, ingredientes, imagen } = pizza;
@@ -153,6 +165,8 @@ const cardPizza = (pizza) => {
 	</div>
 	`;
 };
+
+// funcion para el input vacio
 
 const isEmpty = (value) => (value === '' ? false : true);
 

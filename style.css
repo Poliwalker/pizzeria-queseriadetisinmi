@@ -30,39 +30,60 @@ main {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 1rem 2rem;
-	gap: 30px;
-	background-color: aliceblue;
-	border: 2px solid green;
+	padding: 1rem 4rem;
+	gap: 15px;
+	background-color: #ffefdf;
+	border: 4px solid green;
 	border-radius: 20px;
 }
 
-#pizza-error {
-	color: red;
-	font-size: 60px;
-}
+/* text card pizza encontrada */
 
 .title-pizza {
 	font-size: 80px;
-	color: red;
+	color: green;
 	font-family: 'Raleway';
 	text-align: center;
+	max-width: 400px;
 }
 
 #img {
 	width: 300px;
+	height: 300px;
 	border-radius: 8px;
 }
 
 .price-pizza {
 	font-size: 30px;
-	color: red;
+	color: green;
 	font-family: 'poppins';
 }
 
 .ing-pizza {
-	color: red;
-	max-width: 400px;
+	color: rgb(0, 0, 0);
+	text-align: center;
+}
+
+/* text pizza no encontrada */
+
+.pizza-error {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.fa-xmark {
+	color: crimson;
+	font-size: 30px;
+	background-color: black;
+	padding: 5px 10px;
+}
+
+.title-error {
+	color: crimson;
+	font-size: 50px;
+	max-width: 500px;
+	text-align: center;
 }
 
 form {
