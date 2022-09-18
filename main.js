@@ -122,6 +122,22 @@ const pizzas = [
 		imagen:
 			'https://www.garciadepou.com/blog/wp-content/uploads/2016/08/pizza.jpg',
 	},
+	{
+		id: 7,
+		nombre: 'Primavera',
+		precio: 2500,
+		ingredientes: [
+			'muzzarela',
+			'aceitunas negras',
+			'morrón',
+			'huevo',
+			'parmesano',
+			'ajo',
+			'perejil',
+		],
+		imagen:
+			'https://media-cdn.tripadvisor.com/media/photo-s/08/25/d1/94/pizza-primavera.jpg',
+	},
 ];
 
 const form = document.getElementById('form');
