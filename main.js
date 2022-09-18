@@ -145,8 +145,6 @@ const numberId = document.getElementById('number');
 const container = document.getElementById('container');
 const pizzaError = document.getElementById('pizza-error');
 
-console.log(pizzaError);
-
 const saveLocalStorage = () => {
 	localStorage.setItem('pizzas', JSON.stringify(pizzas));
 };
